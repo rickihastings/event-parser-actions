@@ -1,0 +1,15 @@
+name: 'Github Action for Data Parsing'
+description: 'A Github action for parsing Github event (or any input data) and returning the data for use in other actions and steps.'
+inputs:
+  source:
+    description: 'Input source to parse'
+    required: true
+  identifier:
+    description: 'The identifier to look for which will qualify the content for parsing'
+    required: true
+outputs:
+  time:
+    description: 'Testing'
+runs:
+  using: 'node12'
+  main: 'index.js'
