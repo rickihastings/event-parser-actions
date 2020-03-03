@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint index.ts",
-    "test": "yarn build && act -e example-payload.json",
+    "test": "act -e example-payload.json",
     "build": "ncc build index.ts -o dist -m -s"
   },
   "dependencies": {

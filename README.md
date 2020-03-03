@@ -55,3 +55,9 @@ jobs:
           echo ${{ steps.vars.outputs.env }}
           echo ${{ steps.vars.outputs.url }}
 ```
+
+## Local development
+
+1. Make changes to index.ts
+2. Rebuild with `yarn build`
+3. Test your changes `yarn test`
