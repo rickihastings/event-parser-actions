@@ -25,8 +25,6 @@ or
 
 **Required** The input to parse, eg `${{ github.event.comment.body }}`
 
-## Output
-
 ### `variables`
 
 **Required** A list of the variables you wish to parse separated by a new line. Or just a single variable.
