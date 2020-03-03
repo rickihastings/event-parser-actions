@@ -1,9 +1,11 @@
 # Event Parser Github Action
 
-This action parses an input of choice, such as something from the Github Event API, eg: `{{ github.event.comment.body }}`, looks for an identifier in the comment
-to validate whether it should be parsed, and attempts to parse `key=value` tokens from the input and output them as variables.
+This action parses an input of choice, such as something from the Github Event API, eg: `{{ github.event.comment.body }}`, 
+and attempts to parse `key=value` tokens from the input and output them as variables.
 
-Note, unless you lock this down some how it's wise to only use it on private repositories for now.
+Unless you lock this down somehow it's wise to only use it on private repositories for now.
+
+Happy to accept PRs to optionally check CODEOWNERS, or something similar.
 
 ## Why?
 
@@ -21,18 +23,37 @@ or
 
 ### `source`
 
-**Required** The input to parse, eg `{{ github.event.comment.body }}`
-
-### `identifier`
-
-**Required** The identifier token to qualify the message for parsing, eg `+deploy` or `+tests`
+**Required** The input to parse, eg `${{ github.event.comment.body }}`
 
 ## Output
 
-### 
+### `variables`
+
+**Required** A list of the variables you wish to parse separated by a new line. Or just a single variable.
 
 ## Example Usage
 
 ```
+on: 
+  pull_request_review_comment:
+    - created
 
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    name: An example workflow
+    if: contains(github.event.comment.body, '+deploy')
+    steps:
+      - name: Extract vars
+        uses: ./
+        id: vars
+        with:
+          source: ${{ github.event.comment.body }}
+          variables: |
+            env
+            url
+      - name: Do something with env vars...
+        run: |
+          echo ${{ steps.vars.outputs.env }}
+          echo ${{ steps.vars.outputs.url }}
 ```

@@ -1,18 +1,25 @@
 {
   "name": "event-parser-action",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A Github action for parsing Github event (or any input data) and returning the data for use in other actions and steps.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/rickihastings/event-parser-action",
   "author": "Ricki Hastings <rickihastings22@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint index.js"
+    "lint": "eslint index.ts",
+    "test": "yarn build && act -e example-payload.json",
+    "build": "ncc build index.ts -o dist -m -s"
   },
   "dependencies": {
     "@actions/core": "^1.2.3"
   },
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "@types/node": "^13.7.7",
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/parser": "^2.22.0",
+    "@zeit/ncc": "^0.21.1",
+    "eslint": "^6.8.0",
+    "typescript": "^3.8.3"
   }
 }

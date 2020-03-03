@@ -4,12 +4,9 @@ inputs:
   source:
     description: 'Input source to parse'
     required: true
-  identifier:
-    description: 'The identifier to look for which will qualify the content for parsing'
+  variables:
+    description: 'Variables to match for in a JSON array'
     required: true
-outputs:
-  time:
-    description: 'Testing'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'

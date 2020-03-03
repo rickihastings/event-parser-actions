@@ -1,0 +1,22 @@
+on: 
+  pull_request_review_comment:
+    - created
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    name: An example workflow on comment
+    if: contains(github.event.comment.body, '+deploy')
+    steps:
+      - name: Extract vars
+        uses: ./
+        id: vars
+        with:
+          source: ${{ github.event.comment.body }}
+          variables: |
+            env
+            url
+      - name: Do something with env vars...
+        run: |
+          echo ${{ steps.vars.outputs.env }}
+          echo ${{ steps.vars.outputs.url }}
