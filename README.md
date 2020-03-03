@@ -62,3 +62,7 @@ jobs:
 1. Make changes to index.ts
 2. Rebuild with `yarn build`
 3. Test your changes `yarn test`
+
+## Licence
+
+[LICENCE](LICENCE.md)
