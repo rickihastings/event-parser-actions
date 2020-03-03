@@ -32,15 +32,16 @@ or
 ## Example Usage
 
 ```
-on: 
-  pull_request_review_comment:
-    - created
+name: Pull Request Comment Trigger Example
+on:
+  issue_comment:
+    types: [created]
 
 jobs:
   test_job:
     runs-on: ubuntu-latest
-    name: An example workflow
-    if: contains(github.event.comment.body, '+deploy')
+    name: An example workflow on comment
+    if: contains(github.event.comment.body, '+deploy') && github.event.issue.pull_request
     steps:
       - name: Extract vars
         uses: ./
