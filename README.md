@@ -65,4 +65,4 @@ jobs:
 
 ## Licence
 
-[LICENCE](LICENCE.md)
+[MIT](LICENCE.md)
