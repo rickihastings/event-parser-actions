@@ -1,9 +1,6 @@
 name: 'Github Action for Data Parsing'
 description: 'A Github action for parsing Github event (or any input data) and returning the data for use in other actions and steps.'
 inputs:
-  source:
-    description: 'Input source to parse'
-    required: true
   variables:
     description: 'Variables to match for in a JSON array'
     required: true

@@ -15,7 +15,7 @@ function executeAction(): void {
         const variableRegex = new RegExp(`\\b${variable}=(\\S+)`, 'i');
         const matches = source.match(variableRegex);
 
-        if (matches.length > 0) {
+        if (matches && matches.length > 0) {
             setOutput(variable, matches[1]);
         }
     });
