@@ -17,7 +17,7 @@ An example of a comment could be:
 
 or
 
-`+tests browser=chrome
+`+tests browser=chrome`
 
 ## Input
 
